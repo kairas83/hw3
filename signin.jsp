@@ -8,6 +8,11 @@
 	<title>회원가입</title>
 </head>
 <body>
-	안녕하세요? 현재 시각은 <%= new java.util.Date() %>입니다.
+	<form action="signin_complete.jsp" method="post" name="signin">
+		ID: <input type="text" id="member_id"><br>
+		PW: <input type="password" id="member_password"><br>
+		<input class="left" type=submit value="가입">
+	</form>
+	
 </body>
 </html>
