@@ -1,4 +1,8 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
+<%
+	String id = request.getParameter("id");
+	String password = request.getParameter("password");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,22 +13,20 @@
 <body>
 	<%!
 		public boolean sign_success() {
-			return true;
+			return true;			
 		}
 	%>
+	
 	<%
 	if (sign_success() == true) {
-		out.print("회원 가입이 완료되었습니다<br>");
-		out.print("5초후 메인페이지로 이동합니다");
-		out.flush();
+		out.println("회원 가입이 성공하였습니다<br>");
 	}
 	else
 	{
-		out.print("회원 가입이 실패하였습니다");
-		out.flush();
+		out.println("회원 가입이 실패하였습니다");
 	}
-		Thread.sleep(5000);
-		response.sendRedirect("index.jsp");
-	%>
+	out.println("5초후 초기화면으로 이동합니다");
+	response.setHeader("Refresh", "5; URL=index.jsp");
+	%>	
 </body>
 </html>
